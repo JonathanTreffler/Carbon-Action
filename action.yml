@@ -39,7 +39,7 @@ runs:
     - name: Install Chrome
       run: |
         curl -sSL https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 2> /dev/null
-        sudo echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list
+        sudo echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" | sudo tee -a /etc/apt/sources.list.d/google-chrome.list
         sudo apt update -y && sudo apt install -y google-chrome-stable
       shell: bash
     - name: Install Python dependencies
