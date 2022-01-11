@@ -29,10 +29,50 @@ inputs:
     description: "Font size of the code"
     required: false
     default: "14px"
+  fontFamily:
+    description: "Font family of the code"
+    required: false
+    default: "Hack"
+  firstLineNumber:
+    description: "First line number"
+    required: false
+    default: "1"
+  language:
+    description: "Programing language for proper code highlighting"
+    required: false
+    default: "auto"
+  lineNumbers:
+    description: "Turn on/off line number"
+    required: false
+    default: "false"
+  paddingHorizontal:
+    description: "Horizontal padding"
+    required: false
+    default: "56px"
+  paddingVertical:
+    description: "Vertical padding"
+    required: false
+    default: "56px"
   theme:
     description: "The color theme"
     required: false
     default: "material"
+  watermark:
+    description: "Turn on/off watermark"
+    required: false
+    default: "false"
+  widthAdjustment:
+    description: "Turn on/off width adjustment"
+    required: false
+    default: "true"
+  windowControls:
+    description: "Turn on/off window controls"
+    required: false
+    default: "true"
+  windowTheme:
+    description: "Window theme"
+    required: false
+    default: "none"
 runs:
   using: "composite"
   steps:
@@ -49,5 +89,25 @@ runs:
       run: |
         python3 ${{ github.action_path }}/app.py &
         sleep 20 &&
-        curl -G --data-urlencode "code=${{ inputs.code }}" --data-urlencode "theme=${{ inputs.theme }}" --data-urlencode "backgroundColor=${{ inputs.backgroundColor }}" "localhost:5000/" --output code.png
+        curl -G \
+          --data-urlencode "code=${{ inputs.code }}" \
+          --data-urlencode "backgroundColor=${{ inputs.backgroundColor }}" \
+          --data-urlencode "dropShadow=${{ inputs.dropShadow }}" \
+          --data-urlencode "dropShadowBlurRadius=${{ inputs.dropShadowBlurRadius }}" \
+          --data-urlencode "dropShadowOffsetY=${{ inputs.dropShadowOffsetY }}" \
+          --data-urlencode "exportSize=${{ inputs.exportSize }}" \
+          --data-urlencode "fontSize=${{ inputs.fontSize }}" \
+          --data-urlencode "fontFamily=${{ inputs.fontFamily }}" \
+          --data-urlencode "firstLineNumber=${{ inputs.firstLineNumber }}" \
+          --data-urlencode "language=${{ inputs.language }}" \
+          --data-urlencode "lineNumbers=${{ inputs.lineNumbers }}" \
+          --data-urlencode "paddingHorizontal=${{ inputs.paddingHorizontal }}" \
+          --data-urlencode "paddingVertical=${{ inputs.paddingVertical }}" \
+          --data-urlencode "theme=${{ inputs.theme }}" \
+          --data-urlencode "watermark=${{ inputs.watermark }}" \
+          --data-urlencode "widthAdjustment=${{ inputs.widthAdjustment }}" \
+          --data-urlencode "windowControls=${{ inputs.windowControls }}" \
+          --data-urlencode "windowTheme=${{ inputs.windowTheme }}" \
+          "localhost:5000/" \
+          --output code.png
       shell: bash
