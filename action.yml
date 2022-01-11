@@ -56,7 +56,7 @@ inputs:
   theme:
     description: "The color theme"
     required: false
-    default: "material"
+    default: "Material"
   watermark:
     description: "Turn on/off watermark"
     required: false
