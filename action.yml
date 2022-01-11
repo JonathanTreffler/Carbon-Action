@@ -33,10 +33,6 @@ inputs:
     description: "The color theme"
     required: false
     default: "material"
-outputs:
-  random-number:
-    description: "Random number"
-    value: ${{ steps.random-number-generator.outputs.random-id }}
 runs:
   using: "composite"
   steps:
