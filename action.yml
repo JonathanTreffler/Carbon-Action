@@ -1,0 +1,57 @@
+name: 'Carbon Action'
+description: 'Action for generating beautiful images of code using carbon.now.sh'
+inputs:
+  code:
+    description: 'The Code to generate the image with'
+    required: true
+    default: 'console.log("Hello World");'
+  backgroundColor:
+    description: "The background color of the generated image"
+    required: false
+    default: "rgba(171, 184, 195, 1)"	
+  dropShadow:
+    description: "Turn on/off the shadow of the generated image"
+    required: false
+    default: "true"
+  dropShadowBlurRadius:
+    description: "The blur radius of the shadow"
+    required: false
+    default: "68px"
+  dropShadowOffsetY:
+    description: "Shadow y offset"
+    required: false
+    default: "20px"
+  exportSize:
+    description: "The resolution of exported image, e.g. 1x, 3x"
+    required: false
+    default: "2x"
+  fontSize:
+    description: "Font size of the code"
+    required: false
+    default: "14px"
+  theme:
+    description: "The color theme"
+    required: false
+    default: "material"
+outputs:
+  random-number:
+    description: "Random number"
+    value: ${{ steps.random-number-generator.outputs.random-id }}
+runs:
+  using: "composite"
+  steps:
+    - name: Install Chrome
+      run: |
+        curl -sSL https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+        sudo echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list
+        sudo apt update -y && sudo apt install -y google-chrome-stable
+      shell: bash
+    - name: Install Python dependencies
+      run: pip3 install -r requirements.txt
+      shell: bash
+    - name: Run Server and generate image
+      run: |
+        python3 app.py &
+        sleep 20 &&
+        curl "localhost:5000/?code=Made+with+Love+in+India+by+Sumanjay&theme=darcula&backgroundColor=rgba(144, 19, 254, 100)"
+      shell: bash

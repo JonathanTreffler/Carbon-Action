@@ -8,11 +8,17 @@ DOWNLOAD_FOLDER = os.getcwd()
 
 async def open_carbonnowsh(url):
     browser = await launch(defaultViewPort=None,
+                           executablePath='/usr/bin/google-chrome-stable',
                            handleSIGINT=False,
                            handleSIGTERM=False,
                            handleSIGHUP=False,
                            headless=True,
-                           args=['--no-sandbox', '--disable-setuid-sandbox'])
+                           args=['--no-sandbox',
+                                '--single-process',
+                                '--disable-dev-shm-usage',
+                                '--disable-gpu',
+                                '--no-zygote'
+                            ])
     page = await browser.newPage()
     await page._client.send('Page.setDownloadBehavior', {
         'behavior': 'allow',
