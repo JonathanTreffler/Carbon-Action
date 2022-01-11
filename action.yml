@@ -49,5 +49,5 @@ runs:
       run: |
         python3 ${{ github.action_path }}/app.py &
         sleep 20 &&
-        curl "localhost:5000/?code=Made+with+Love+in+India+by+Sumanjay&theme=darcula&backgroundColor=rgba(144, 19, 254, 100)"
+        curl "localhost:5000/?code=Made+with+Love+in+India+by+Sumanjay&theme=darcula&backgroundColor=rgba(144,19,254,100)"
       shell: bash
