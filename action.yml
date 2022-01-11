@@ -43,7 +43,7 @@ runs:
         sudo apt update -y && sudo apt install -y google-chrome-stable
       shell: bash
     - name: Install Python dependencies
-      run: pip3 install -r requirements.txt
+      run: ls -la && pip3 install -r requirements.txt
       shell: bash
     - name: Run Server and generate image
       run: |
