@@ -1,27 +1,25 @@
-# Carbon API [Unofficial]
+# Carbon Action [Unofficial]
 ---
 <p align="center">
     <a href="https://github.com/carbon-app/carbon">
         <img src="resources/carbon.png" alt="Carbon">
     </a>
     <br>
-    <b>Unofficial API</b>
+    <b>Unofficial Github Action</b>
     <br>
 </p>
 
 ### Show some :heart: and :star: the repo
 
-[![GitHub stars](https://img.shields.io/github/stars/cyberboysumanjay/Carbon-API.svg?style=social&label=Star)](https://github.com/cyberboysumanjay/JioSaavnAPI)
-![GitHub followers](https://img.shields.io/github/followers/cyberboysumanjay.svg?style=social&label=Follow)
-[![Telegram Channel](https://img.shields.io/badge/Telegram-Channel-orange)](https://t.me/sjprojects)
+[![GitHub stars](https://img.shields.io/github/stars/JonathanTreffler/Carbon-Action.svg?style=social&label=Star)](https://github.com/JonathanTreffler/JioSaavnAPI)
+![GitHub followers](https://img.shields.io/github/followers/JonathanTreffler.svg?style=social&label=Follow)
 
-## Carbon API written in Python using Flask and Pyppeteer
+## Carbon Github Action written in Python using Flask and Pyppeteer based on [Carbon API](https://github.com/cyberboysumanjay/Carbon-API) by @cyberboysumanjay
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) [![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
 > **Carbon**  makes it easy to create and share beautiful images of your source code
 
-#### Usage
-You can use the API by sending a GET or a POST request using these params
+#### Action parameters
 
 | parameter              | default                    | type    | description                                      |
 | ---------------------- | -------------------------- | ------- | ------------------------------------------------ |
@@ -44,56 +42,17 @@ You can use the API by sending a GET or a POST request using these params
 | `windowControls`       | `true`                     | boolean | turn on/off window controls                      |
 | `windowTheme`          | `"none"`                   | string  | window theme                                     |
 
-### GET `/`
-Params are encoded in url
-```bash
-https://carbonnowsh.herokuapp.com/?code=Made+with+Love+in+India+by+Sumanjay&theme=darcula&backgroundColor=rgba(144, 19, 254, 100)
-```
-
-### POST `/`
-
-**Body** is JSON with these params:
-
-```json
-{
-    "backgroundColor": "rgba(144, 19, 254, 100)",
-    "code": "Made with Love in India by Sumanjay",
-    "theme": "dracula"
-}
-```
 
 ### RESPONSE
 **Response** is an image of a code or text snippet.
 <p align="center">
-    <a href="https://github.com/cyberboysumanjay">
+    <a href="https://github.com/JonathanTreffler">
         <img src="resources/response.png" alt="Response">
     </a>
 </p>
 
-#### Deploy Option
+### Copyright & License
 
-* **[Heroku](https://www.heroku.com/) Method** 
-  [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/cyberboysumanjay/Carbon-API/tree/master)
-
-* **Other Method** 
-
-  ```bash
-  # Clone the repo
-  git clone https://github.com/cyberboysumanjay/Carbon-API
-  cd Carbon-API
-
-  # Create virtualenv
-  virtualenv -p /usr/bin/python3 venv
-  ../venv/bin/activate
-
-  # Install requirements
-  pip3 install -r requirements.txt
-
-  # Finally run the app
-  python3 app.py
-  ```
-### Made with ❤️️ in India
-### Copyright & License 
-
-* Copyright (C) 2020 by [Sumanjay](https://github.com/cyberboysumanjay)
-* Licensed under the terms of the [GNU GPL Version 3](https://github.com/cyberboysumanjay/Carbon-API/blob/master/LICENSE)
+* Copyright (C) 2020 by [Sumanjay](https://github.com/cyberboysumanjay) (Original Author)
+* Copyright (C) 2021 by [Jonathantreffler](https://github.com/JonathanTreffler) (Modified to be a Githubb Action)
+* Licensed under the terms of the [GNU GPL Version 3](https://github.com/JonathanTreffler/Carbon-Action/blob/master/LICENSE)
