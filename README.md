@@ -19,6 +19,15 @@
 
 > **Carbon**  makes it easy to create and share beautiful images of your source code
 
+#### Usage
+Add this to your workflow and configure the with parameters:
+```
+- uses: JonathanTreffler/Carbon-Action@master
+  with:
+      code: $(cat code.js)
+      language: JavaScript
+```
+
 #### Action parameters
 
 | parameter              | default                    | type    | description                                      |
@@ -42,13 +51,10 @@
 | `windowControls`       | `true`                     | boolean | turn on/off window controls                      |
 | `windowTheme`          | `"none"`                   | string  | window theme                                     |
 
-
-### RESPONSE
-**Response** is an image of a code or text snippet.
+### Output
+An image like this one will be saved into the working directory as code.png.
 <p align="center">
-    <a href="https://github.com/JonathanTreffler">
-        <img src="resources/response.png" alt="Response">
-    </a>
+    <img src="resources/response.png" alt="Response">
 </p>
 
 ### Copyright & License
