@@ -89,44 +89,44 @@ runs:
       run: |
         python3 ${{ github.action_path }}/app.py &
         sleep 20 &&
-        echo "{ code: \"${{ inputs.code }}\","\
-          "backgroundColor: ${{ inputs.backgroundColor }},"\
-          "dropShadow: ${{ inputs.dropShadow }},"\
-          "dropShadowBlurRadius: ${{ inputs.dropShadowBlurRadius }},"\
-          "dropShadowOffsetY: ${{ inputs.dropShadowOffsetY }},"\
-          "exportSize: ${{ inputs.exportSize }},"\
-          "fontSize: ${{ inputs.fontSize }},"\
-          "fontFamily: ${{ inputs.fontFamily }},"\
-          "firstLineNumber: ${{ inputs.firstLineNumber }},"\
-          "language: ${{ inputs.language }},"\
-          "lineNumbers: ${{ inputs.lineNumbers }},"\
-          "paddingHorizontal: ${{ inputs.paddingHorizontal }},"\
-          "paddingVertical: ${{ inputs.paddingVertical }},"\
-          "theme: ${{ inputs.theme }},"\
-          "watermark: ${{ inputs.watermark }},"\
-          "widthAdjustment: ${{ inputs.widthAdjustment }},"\
-          "windowControls: ${{ inputs.windowControls }},"\
-          "windowTheme: ${{ inputs.windowTheme }} }" &&
+        echo "{ code: ${{ inputs.code | jq -aRs . }},"\
+          "backgroundColor: ${{ inputs.backgroundColor | jq -aRs . }},"\
+          "dropShadow: ${{ inputs.dropShadow | jq -aRs . }},"\
+          "dropShadowBlurRadius: ${{ inputs.dropShadowBlurRadius | jq -aRs . }},"\
+          "dropShadowOffsetY: ${{ inputs.dropShadowOffsetY | jq -aRs . }},"\
+          "exportSize: ${{ inputs.exportSize | jq -aRs . }},"\
+          "fontSize: ${{ inputs.fontSize | jq -aRs . }},"\
+          "fontFamily: ${{ inputs.fontFamily | jq -aRs . }},"\
+          "firstLineNumber: ${{ inputs.firstLineNumber | jq -aRs . }},"\
+          "language: ${{ inputs.language | jq -aRs . }},"\
+          "lineNumbers: ${{ inputs.lineNumbers | jq -aRs . }},"\
+          "paddingHorizontal: ${{ inputs.paddingHorizontal | jq -aRs . }},"\
+          "paddingVertical: ${{ inputs.paddingVertical | jq -aRs . }},"\
+          "theme: ${{ inputs.theme | jq -aRs . }},"\
+          "watermark: ${{ inputs.watermark | jq -aRs . }},"\
+          "widthAdjustment: ${{ inputs.widthAdjustment | jq -aRs . }},"\
+          "windowControls: ${{ inputs.windowControls | jq -aRs . }},"\
+          "windowTheme: ${{ inputs.windowTheme | jq -aRs . }} }" &&
         curl --request POST \
           -H "Content-Type: application/json" \
-          -d "{ code: \"${{ inputs.code }}\","\
-          "backgroundColor: ${{ inputs.backgroundColor }},"\
-          "dropShadow: ${{ inputs.dropShadow }},"\
-          "dropShadowBlurRadius: ${{ inputs.dropShadowBlurRadius }},"\
-          "dropShadowOffsetY: ${{ inputs.dropShadowOffsetY }},"\
-          "exportSize: ${{ inputs.exportSize }},"\
-          "fontSize: ${{ inputs.fontSize }},"\
-          "fontFamily: ${{ inputs.fontFamily }},"\
-          "firstLineNumber: ${{ inputs.firstLineNumber }},"\
-          "language: ${{ inputs.language }},"\
-          "lineNumbers: ${{ inputs.lineNumbers }},"\
-          "paddingHorizontal: ${{ inputs.paddingHorizontal }},"\
-          "paddingVertical: ${{ inputs.paddingVertical }},"\
-          "theme: ${{ inputs.theme }},"\
-          "watermark: ${{ inputs.watermark }},"\
-          "widthAdjustment: ${{ inputs.widthAdjustment }},"\
-          "windowControls: ${{ inputs.windowControls }},"\
-          "windowTheme: ${{ inputs.windowTheme }} }"
+          -d "{ code: ${{ inputs.code | jq -aRs . }},"\
+          "backgroundColor: ${{ inputs.backgroundColor | jq -aRs . }},"\
+          "dropShadow: ${{ inputs.dropShadow | jq -aRs . }},"\
+          "dropShadowBlurRadius: ${{ inputs.dropShadowBlurRadius | jq -aRs . }},"\
+          "dropShadowOffsetY: ${{ inputs.dropShadowOffsetY | jq -aRs . }},"\
+          "exportSize: ${{ inputs.exportSize | jq -aRs . }},"\
+          "fontSize: ${{ inputs.fontSize | jq -aRs . }},"\
+          "fontFamily: ${{ inputs.fontFamily | jq -aRs . }},"\
+          "firstLineNumber: ${{ inputs.firstLineNumber | jq -aRs . }},"\
+          "language: ${{ inputs.language | jq -aRs . }},"\
+          "lineNumbers: ${{ inputs.lineNumbers | jq -aRs . }},"\
+          "paddingHorizontal: ${{ inputs.paddingHorizontal | jq -aRs . }},"\
+          "paddingVertical: ${{ inputs.paddingVertical | jq -aRs . }},"\
+          "theme: ${{ inputs.theme | jq -aRs . }},"\
+          "watermark: ${{ inputs.watermark | jq -aRs . }},"\
+          "widthAdjustment: ${{ inputs.widthAdjustment | jq -aRs . }},"\
+          "windowControls: ${{ inputs.windowControls | jq -aRs . }},"\
+          "windowTheme: ${{ inputs.windowTheme | jq -aRs . }} }"
           "localhost:5000/" \
           --output code.png
       shell: bash
