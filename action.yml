@@ -89,25 +89,44 @@ runs:
       run: |
         python3 ${{ github.action_path }}/app.py &
         sleep 20 &&
-        curl -G \
-          --data-urlencode "code=${{ inputs.code }}" \
-          --data-urlencode "backgroundColor=${{ inputs.backgroundColor }}" \
-          --data-urlencode "dropShadow=${{ inputs.dropShadow }}" \
-          --data-urlencode "dropShadowBlurRadius=${{ inputs.dropShadowBlurRadius }}" \
-          --data-urlencode "dropShadowOffsetY=${{ inputs.dropShadowOffsetY }}" \
-          --data-urlencode "exportSize=${{ inputs.exportSize }}" \
-          --data-urlencode "fontSize=${{ inputs.fontSize }}" \
-          --data-urlencode "fontFamily=${{ inputs.fontFamily }}" \
-          --data-urlencode "firstLineNumber=${{ inputs.firstLineNumber }}" \
-          --data-urlencode "language=${{ inputs.language }}" \
-          --data-urlencode "lineNumbers=${{ inputs.lineNumbers }}" \
-          --data-urlencode "paddingHorizontal=${{ inputs.paddingHorizontal }}" \
-          --data-urlencode "paddingVertical=${{ inputs.paddingVertical }}" \
-          --data-urlencode "theme=${{ inputs.theme }}" \
-          --data-urlencode "watermark=${{ inputs.watermark }}" \
-          --data-urlencode "widthAdjustment=${{ inputs.widthAdjustment }}" \
-          --data-urlencode "windowControls=${{ inputs.windowControls }}" \
-          --data-urlencode "windowTheme=${{ inputs.windowTheme }}" \
+        echo "{ code: ${{ inputs.code }},"\
+          "backgroundColor: ${{ inputs.backgroundColor }},"\
+          "dropShadow: ${{ inputs.dropShadow }},"\
+          "dropShadowBlurRadius: ${{ inputs.dropShadowBlurRadius }},"\
+          "dropShadowOffsetY: ${{ inputs.dropShadowOffsetY }},"\
+          "exportSize: ${{ inputs.exportSize }},"\
+          "fontSize: ${{ inputs.fontSize }},"\
+          "fontFamily: ${{ inputs.fontFamily }},"\
+          "firstLineNumber: ${{ inputs.firstLineNumber }},"\
+          "language: ${{ inputs.language }},"\
+          "lineNumbers: ${{ inputs.lineNumbers }},"\
+          "paddingHorizontal: ${{ inputs.paddingHorizontal }},"\
+          "paddingVertical: ${{ inputs.paddingVertical }},"\
+          "theme: ${{ inputs.theme }},"\
+          "watermark: ${{ inputs.watermark }},"\
+          "widthAdjustment: ${{ inputs.widthAdjustment }},"\
+          "windowControls: ${{ inputs.windowControls }},"\
+          "windowTheme: ${{ inputs.windowTheme }} }" &&
+        curl --request POST \
+          -H "Content-Type: application/json" \
+          -d "{ code: ${{ inputs.code }},"\
+          "backgroundColor: ${{ inputs.backgroundColor }},"\
+          "dropShadow: ${{ inputs.dropShadow }},"\
+          "dropShadowBlurRadius: ${{ inputs.dropShadowBlurRadius }},"\
+          "dropShadowOffsetY: ${{ inputs.dropShadowOffsetY }},"\
+          "exportSize: ${{ inputs.exportSize }},"\
+          "fontSize: ${{ inputs.fontSize }},"\
+          "fontFamily: ${{ inputs.fontFamily }},"\
+          "firstLineNumber: ${{ inputs.firstLineNumber }},"\
+          "language: ${{ inputs.language }},"\
+          "lineNumbers: ${{ inputs.lineNumbers }},"\
+          "paddingHorizontal: ${{ inputs.paddingHorizontal }},"\
+          "paddingVertical: ${{ inputs.paddingVertical }},"\
+          "theme: ${{ inputs.theme }},"\
+          "watermark: ${{ inputs.watermark }},"\
+          "widthAdjustment: ${{ inputs.widthAdjustment }},"\
+          "windowControls: ${{ inputs.windowControls }},"\
+          "windowTheme: ${{ inputs.windowTheme }} }"
           "localhost:5000/" \
           --output code.png
       shell: bash
