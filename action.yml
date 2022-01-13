@@ -89,7 +89,7 @@ runs:
       run: |
         python3 ${{ github.action_path }}/app.py &
         sleep 20 &&
-        echo "{ code: ${{ inputs.code }},"\
+        echo "{ code: \"${{ inputs.code }}\","\
           "backgroundColor: ${{ inputs.backgroundColor }},"\
           "dropShadow: ${{ inputs.dropShadow }},"\
           "dropShadowBlurRadius: ${{ inputs.dropShadowBlurRadius }},"\
@@ -109,7 +109,7 @@ runs:
           "windowTheme: ${{ inputs.windowTheme }} }" &&
         curl --request POST \
           -H "Content-Type: application/json" \
-          -d "{ code: ${{ inputs.code }},"\
+          -d "{ code: \"${{ inputs.code }}\","\
           "backgroundColor: ${{ inputs.backgroundColor }},"\
           "dropShadow: ${{ inputs.dropShadow }},"\
           "dropShadowBlurRadius: ${{ inputs.dropShadowBlurRadius }},"\
